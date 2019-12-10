@@ -2,22 +2,31 @@ body {
     margin: 0;
 }
 
-canvas {
-    background: #425894;
-}
+canvas {}
 
 .actions {
     position: fixed;
     top: 0;
     left: 0;
-}
-.actions > #brush {
-    display: none;
+    padding: 5px;
 }
 
-.actions.x > #eraser{
-    display: none;
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
-.actions.x > #brush{
-    display: inline-block;
+
+.actions svg {
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.3s;
+    margin: 0 7px;
+}
+
+.actions svg.active {
+    fill: red;
+    transform: scale(1.2);
 }
