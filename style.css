@@ -8,10 +8,8 @@ ol, ul {
 }
 
 body {
-    margin: 0;
+    overflow: hidden;
 }
-
-canvas {}
 
 .actions {
     position: fixed;
