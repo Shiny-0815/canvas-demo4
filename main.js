@@ -23,6 +23,31 @@ pen.onclick = function () {
     eraser.classList.remove('active')
 }
 
+//画笔
+ctx.fillStyle = 'red'
+ctx.strokeStyle = 'red'
+red.onclick = function () {
+    ctx.fillStyle = 'red'
+    ctx.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+green.onclick = function () {
+    ctx.fillStyle = 'green'
+    ctx.strokeStyle = 'green'
+    green.classList.add('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function () {
+    ctx.fillStyle = 'blue'
+    ctx.strokeStyle = 'blue'
+    blue.classList.add('active')
+    green.classList.remove('active')
+    red.classList.remove('active')
+}
+
 
 /********/
 //工具
@@ -95,7 +120,7 @@ function xxxx(ctx) {
 }
 //circle
 function drawCircle(x, y, radius) {
-    ctx.fillStyle = 'red'
+
     ctx.beginPath()
     ctx.arc(x, y, radius, 0, Math.PI * 2) //圆心位置，半径，开始角度，结束角度
     ctx.fill()
@@ -103,7 +128,7 @@ function drawCircle(x, y, radius) {
 //line
 function drawLine(beginX, beginY, closeX, closeY) {
     ctx.beginPath()
-    ctx.strokeStyle = 'red'
+
     ctx.moveTo(beginX, beginY)
     ctx.lineTo(closeX, closeY)
     ctx.lineWidth = 8
