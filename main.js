@@ -22,8 +22,22 @@ pen.onclick = function () {
     pen.classList.add('active')
     eraser.classList.remove('active')
 }
+clear.onclick=function(){
+    ctx.clearRect(0,0,yyy.width,yyy.height);  
+}
+save.onclick=function(){
+    var url=yyy.toDataURL("image/png")
+    var a=document.createElement('a')
+    document.body.appendChild(a)
+    a.href=url
+    a.download='我的画'
+    a.target='_blank'
+    a.click()
+}
 
 //画笔
+radius=1.5
+ctx.lineWidth = 3
 ctx.fillStyle = 'red'
 ctx.strokeStyle = 'red'
 red.onclick = function () {
@@ -47,6 +61,27 @@ blue.onclick = function () {
     green.classList.remove('active')
     red.classList.remove('active')
 }
+thin.onclick = function () {
+    ctx.lineWidth = 3;
+    radius=1.5;
+    thin.classList.add('active')
+    thick.classList.remove('active')
+    middle.classList.remove('active')
+}
+middle.onclick = function () {
+    ctx.lineWidth = 5;
+    radius=2.5;
+    middle.classList.add('active')
+    thick.classList.remove('active')
+    thin.classList.remove('active')
+}
+thick.onclick = function () {
+    ctx.lineWidth = 8;
+    radius=4;
+    thick.classList.add('active')
+    thin.classList.remove('active')
+    middle.classList.remove('active')
+}
 
 
 /********/
@@ -68,7 +103,7 @@ function xxxx(ctx) {
                 ctx.clearRect(x - 4, y - 4, 8, 8)
             } else {
                 path = { 'x': x, 'y': y }
-                drawCircle(x, y, 4)
+                drawCircle(x, y)
             }
         }
         yyy.ontouchmove = function (a) {
@@ -80,7 +115,7 @@ function xxxx(ctx) {
             } else {
                 var newPath = { 'x': x, 'y': y }
                 drawLine(path.x, path.y, newPath.x, newPath.y)
-                drawCircle(x, y, 4)
+                drawCircle(x, y)
                 path = newPath
             }
         }
@@ -97,7 +132,7 @@ function xxxx(ctx) {
                 ctx.clearRect(x - 4, y - 4, 8, 8)
             } else {
                 path = { 'x': x, 'y': y }
-                drawCircle(x, y, 4)
+                drawCircle(x, y)
             }
         }
         yyy.onmousemove = function (a) {
@@ -109,7 +144,7 @@ function xxxx(ctx) {
             } else {
                 var newPath = { 'x': x, 'y': y }
                 drawLine(path.x, path.y, newPath.x, newPath.y)
-                drawCircle(x, y, 4)
+                drawCircle(x, y)
                 path = newPath
             }
         }
@@ -119,8 +154,8 @@ function xxxx(ctx) {
     }
 }
 //circle
-function drawCircle(x, y, radius) {
-
+function drawCircle(x, y) {
+    //radius = 4
     ctx.beginPath()
     ctx.arc(x, y, radius, 0, Math.PI * 2) //圆心位置，半径，开始角度，结束角度
     ctx.fill()
@@ -131,7 +166,7 @@ function drawLine(beginX, beginY, closeX, closeY) {
 
     ctx.moveTo(beginX, beginY)
     ctx.lineTo(closeX, closeY)
-    ctx.lineWidth = 8
+
     ctx.stroke()
 }
 

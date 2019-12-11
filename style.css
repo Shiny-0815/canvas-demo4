@@ -37,7 +37,6 @@ body {
     fill: red;
     transform: scale(1.2);
 }
-
 .colors {
     position: fixed;
     top: 40px;
@@ -68,4 +67,30 @@ body {
 .colors >li.active{
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
     transform: scale(1.2);
+}
+.size{
+    position: fixed;
+    right: 20px;
+    top: -6px;
+}
+.size >li{
+    margin: 20px 0;
+}
+.size >li.active{
+    box-shadow: 0px 0px 6px rgb(59, 59, 59);
+}
+.size > .thin{
+    border-top: 3px solid black;
+    height: 0;
+    width: 30px;
+}
+.size > .middle{
+    border-top: 5px solid black;
+    height: 0;
+    width: 30px;
+}
+.size > .thick{
+    border-top: 8px solid black;
+    height: 0;
+    width: 30px;
 }
